@@ -4,6 +4,7 @@ const app = express()
 const cors = require("cors");
 
 app.use(cors())
+app.use(express.json())
 
 app.get('/getweather', async (req, res) => {
     await weather.find({ search: `${req.query.city}, ${req.query.country}`, degreeType: 'F'}, function (err, result) {

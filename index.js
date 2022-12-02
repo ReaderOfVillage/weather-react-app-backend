@@ -1,6 +1,9 @@
 const express = require('express')
 const weather = require('weather-js')
 const app = express()
+const cors = require("cors");
+
+app.use(cors())
 
 app.get('/getweather', async (req, res) => {
     await weather.find({ search: `${req.query.city}, ${req.query.country}`, degreeType: 'F'}, function (err, result) {
